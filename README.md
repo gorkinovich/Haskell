@@ -1,2 +1,2 @@
-# Haskell
+﻿# Haskell
 Haskell test &amp; experiments
