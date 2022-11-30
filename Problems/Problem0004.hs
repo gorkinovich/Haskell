@@ -32,7 +32,7 @@ SOFTWARE.
 *************************************************************** -}
 module Problem0004 (main) where
 
-isPalindrome :: (Integral a) => a -> Bool
+isPalindrome :: (Integral a, Show a) => a -> Bool
 isPalindrome x = (take half y) == (take half $ reverse y)
     where y = show x
           half = div (length y) 2
