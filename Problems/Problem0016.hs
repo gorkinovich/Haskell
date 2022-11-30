@@ -30,7 +30,7 @@ SOFTWARE.
 *************************************************************** -}
 module Problem0016 (main) where
 
-sumDigits :: (Num a) => a -> Integer
+sumDigits :: (Num a, Show a) => a -> Integer
 sumDigits n = sum [read [x] :: Integer | x <- show n]
 
 main = do putStrLn $ "The sum of the digits is: " ++ result
