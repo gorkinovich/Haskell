@@ -85,7 +85,7 @@ pascalFast m n
 
 countPaths :: Int -> Int -> Integer
 countPaths r c = pascalFast dist (div dist 2)
-    where dist = (r - 1) + (c - 1)
+    where dist = r + c
 
 main = do putStr "The number of routes in a 20x20 grid are "
           putStrLn $ (show $ countPaths 20 20) ++ "."
