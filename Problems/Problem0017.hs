@@ -76,7 +76,7 @@ toLetters2D n
     |  0 <= n && n <  20 = get words0to19 n
     | 20 <= n && n < 100 = if n0 == 0 then r1 else r2
     | otherwise = error "toLetters2D: Out of bounds"
-        where (n1, n0) = divMod  n 10
+        where (n1, n0) = divMod n 10
               r1 = get words20to90 n1
               r2 = r1 ++ "-" ++ (get words0to19 n0)
 
@@ -93,8 +93,9 @@ toLettersEx n andFlag
           (tn1, tn0) = divMod n num1T
           (hn1, hn0) = divMod n num1H
           f0 n1 n0 w = toLettersEx n1 False ++ w ++
-                       toLettersEx n0 andFlag
-          v0 = (get words0to19 hn1) ++ word1Ha ++ toLetters2D hn0
+                       (if n0 == 0 then "" else toLettersEx n0 andFlag)
+          v0 = (get words0to19 hn1) ++ 
+               (if hn0 == 0 then word1H else word1Ha ++toLetters2D hn0)
           v1 = (get words0to19 hn1) ++ word1H ++ toLetters2D hn0
 
 toLetters :: Integer -> String
